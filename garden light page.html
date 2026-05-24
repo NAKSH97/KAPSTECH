@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Lights - Chauhan Brothers Lights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #5c4033;
+            --secondary-color: #d2b48c;
+            --bg-color: #f2ebd9;
+            --text-color: #3e2716;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+        }
+
+        .main-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid var(--secondary-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(92, 64, 51, 0.3);
+        }
+
+        .img-container {
+            height: 250px;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .product-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .btn-action {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-action:hover {
+            background-color: #3e2716;
+            transform: scale(1.05);
+        }
+
+        /* Pop-up Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>Garden Lights</h1>
+        <p>Illuminate Your Outdoor Spaces</p>
+    </header>
+
+    <main class="main-content">
+        <div class="catalog-grid">
+            
+            <div class="product-card">
+                <div class="img-container"></div>
+                <div class="product-info">
+                    <h3>Solar Bollard Light</h3>
+                    <div class="price">Rs. 2,499</div>
+                    <button class="btn-action" onclick="openModal('Solar Bollard Light')">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container"></div>
+                <div class="product-info">
+                    <h3>Designer Path Light</h3>
+                    <div class="price">Rs. 3,299</div>
+                    <button class="btn-action" onclick="openModal('Designer Path Light')">View Details</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Product Title</h2>
+            <p>Premium quality garden lighting to enhance your outdoor ambiance beautifully.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(productName) {
+            document.getElementById('modalTitle').innerText = productName;
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
